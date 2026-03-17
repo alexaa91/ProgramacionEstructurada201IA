@@ -1,5 +1,5 @@
 def dias():
-    opcion = input("Ingrese una opción (1-7):")
+    opcion = input("Ingrese una opción (1-7): ")
 
     match opcion:
         case "1":
