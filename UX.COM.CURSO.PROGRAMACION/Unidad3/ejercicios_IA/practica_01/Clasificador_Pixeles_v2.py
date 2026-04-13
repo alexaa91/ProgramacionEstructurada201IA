@@ -7,7 +7,7 @@ def clasificador_pixeles(intensidad):
     if intensidad < 0.0 or intensidad > 1.0:
         return None
     
-    if 0.0 <= intensidad < UMBRAL_BAJO:
+    if 0.0 <= intensidad <= UMBRAL_BAJO:
         return "(Fondo Oscuro)"
     
     if UMBRAL_BAJO < intensidad < UMBRAL_ALTO:
@@ -45,7 +45,7 @@ def cargar_y_procesar(nombre_archivo):
                     ruido_detectado += 1
                 else:
                     datos_limpios.append(clasificacion)
-                    if clasificacion == "(Fonfdo Oscuro)":
+                    if clasificacion == "(Fondo Oscuro)":
                         fondo_oscuro += 1
                     elif clasificacion == "Gris(Ruido)":
                         gris_ruido += 1
