@@ -3,20 +3,16 @@ UMBRAL_ALTO = 0.7
 UMBRAL_BAJO = 0.3
 
 def clasificador_pixeles(intensidad):
-    
-    if intensidad < 0.0 or intensidad > 1.0:
-        return None
-    
-    if 0.0 <= intensidad <= UMBRAL_BAJO:
-        return "(Fondo Oscuro)"
-    
-    if UMBRAL_BAJO < intensidad < UMBRAL_ALTO:
-        return "Gris(Ruido)"
-    
-    if intensidad >= UMBRAL_ALTO:
-        return "Objeto (Brillante)"
-    
-    print("Análisis de imagen finalizado")
+
+    match intensidad:
+        case i if i < 0.0 or i > 1.0:
+            return None
+        case i if i <= UMBRAL_BAJO:
+            return "(Fondo Oscuro)"
+        case i if i < UMBRAL_ALTO:
+            return "Gris(Ruido)"
+        case _:
+            return "Objeto (Brillante)"
 
 import os
 
