@@ -16,12 +16,11 @@ def detectar_intencion(mensaje):
     return "CONSULTA GENERAL"
 
 def main():
-    mensaje_original = input(">>> Ingrese comando de voz: ")
+    mensaje_original = input("Ingrese comando de voz: ")
     mensaje_limpio = normalizar_mensaje(mensaje_original)
     categoria = detectar_intencion(mensaje_limpio)
     longitud = len(mensaje_original)
 
-    print("\n--- PROCESANDO POR IA ---\n")
     print(f'Mensaje Normalizado: "{mensaje_limpio}"')
     print(f"Categoría de Intención: {categoria}")
     print(f"Longitud del mensaje: {longitud} caracteres")
