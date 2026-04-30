@@ -7,7 +7,6 @@ class ControlAcceso:
         }
 
     def verificar_permisos(self, matricula):
-        """Valida la matrícula y gestiona los roles."""
         if not matricula.strip():
             raise ValueError("La matrícula no puede estar vacía.")
 
@@ -21,7 +20,6 @@ class ControlAcceso:
             print("> [ACCESO DENEGADO] Usuario no registrado en la base de datos de IA.")
 
     def menu_administrador(self):
-        """Permite al administrador agregar nuevos usuarios."""
         opcion = input("\n[MODO ADMIN] ¿Desea registrar un nuevo usuario? (s/n): ").lower()
         if opcion == 's':
             nueva_id = input("Ingrese la nueva matrícula: ")
