@@ -1,5 +1,12 @@
 # 1. IMPORTACIÓN
 # Importamos la biblioteca externa y le asignamos un alias 'np' para facilitar su uso
+import numpy as np
+
+"""
+Si se elimina la línea de importación, al intentar ejecutar el 
+programa mandará un error diciendo que 'np' no está definido, por lo que no se podrán realizar
+las operaciones correspondientes
+""" 
 
 
 def procesar_estadisticas(lista_mensajes):
