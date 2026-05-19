@@ -1,6 +1,6 @@
 # 1. IMPORTACIÓN
 # Importamos la biblioteca externa y le asignamos un alias 'np' para facilitar su uso
-import numpy as np
+
 
 def procesar_estadisticas(lista_mensajes):
     """
