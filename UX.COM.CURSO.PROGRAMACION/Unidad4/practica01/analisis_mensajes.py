@@ -29,7 +29,7 @@ def main():
     print("=== REPORTE DE ACTIVIDAD DEL SERVIDOR ===")
     print(f"Promedio de mensajes por hora: {prom:.2f}")
     print(f"Pico de actividad registrado: {maximo} mensajes")
-    print(f"Variabilidad del tráfico (Desviación): {ds:.2f}")
+    print(f"Variabilidad del tráfico (Desviación): {np.round(ds, 2)}")
     print(f"Mediana de mensajes por hora: {median}")
 
 def funciones_externas():
