@@ -10,7 +10,7 @@ def integer(n):
             print("Not Weird")
 
 def main():
-    n = int(input().strip())
+    n = int(input("Introduce un número entero: "))
     integer(n)
 
 if __name__ == "__main__":
