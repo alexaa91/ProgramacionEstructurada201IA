@@ -3,7 +3,7 @@ def arithmetic_operations():
     b = int(input("Introduce el segundo número: "))
 
     suma  = a + b
-    print (sum)
+    print (suma)
 
     difference = a - b
     print (difference)
