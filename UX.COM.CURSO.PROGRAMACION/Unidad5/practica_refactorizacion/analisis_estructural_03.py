@@ -1,7 +1,7 @@
 """
 Materia: Programación Estructurada
 Laboratorio: Refactorización y Análisis de Código (Parte III)
-Alumno: [Tu Nombre]
+Alumno: Alexa Guadalupe Alarcón González
 """
 import math  # El novato solo importó math esta vez
 
@@ -26,6 +26,10 @@ def inicializar_tablero_vacio():
             
     return tablero
 
+#se utilizó una comprensión de listas para crear una nueva lista de listas, asegurando que cada fila sea una instancia independiente y evitando el problema de referencias compartidas
+def inicializar_tablero_vacio_refactorizado():
+    return [[0 for i in range(4)] for j in range(4)]
+
 # =====================================================================
 # RETO 2: Recortador de Valores Atípicos (Clamping de Datos)
 # Sentido: Limitar las señales de los sensores del robot a un rango seguro.
@@ -43,6 +47,10 @@ def limitar_senal_sensor(valor_lectura, minimo, maximo):
             resultado = valor_lectura
             
     return resultado
+
+#se utilizó la función max para asegurar que el valor de lectura no sea menor al mínimo y la función min para asegurar que no sea mayor al máximo, simplificando la lógica condicional a una sola línea
+def limitar_senal_sensor_refactorizado(valor_lectura, minimo, maximo):
+    return max(min(valor_lectura, maximo), minimo)
 
 # =====================================================================
 # RETO 3: Buscador del Valor Más Cercano a Cero (Error Mínimo)
@@ -68,6 +76,10 @@ def buscar_error_minimo(lista_errores):
             
     return menor_error
 
+#se utilizó la función abs para calcular el valor absoluto de cada error y se utilizó la función min para encontrar el menor valor absoluto en la lista de errores, simplificando el código y eliminando la necesidad de inicializar un valor grande manualmente
+def buscar_error_minimo_refactorizado(lista_errores):
+    return min(abs(error) for error in lista_errores)
+
 # =====================================================================
 # RETO 4: Filtro de Valores Únicos (Eliminador de Duplicados)
 # Sentido: Limpiar las IDs de los usuarios del servidor de Discord para
@@ -92,6 +104,9 @@ def depurar_usuarios_repetidos(lista_ids):
             
     return lista_limpia
 
+def depurar_usuarios_repetidos_refactorizado(lista_ids):
+    # Se utiliza un conjunto (set) para eliminar duplicados de forma eficiente y luego se convierte de nuevo a lista
+    return list(set(lista_ids))
 
 # === PROGRAMA PRINCIPAL (Punto de entrada para probar) ===
 if __name__ == "__main__":
@@ -102,10 +117,19 @@ if __name__ == "__main__":
     for fila in tablero_ia:
         print(fila)
         
+    tablero_ia_refactorizado = inicializar_tablero_vacio_refactorizado()
+    print("\nTablero inicializado de 4x4 (refactorizado):")
+    for fila in tablero_ia_refactorizado:
+        print(fila)
+
+
     print("Lectura recortada (125.4 en rango 0-100):", limitar_senal_sensor(125.4, 0.0, 100.0))
-    
+    print("Lectura recortada (125.4 en rango 0-100):", limitar_senal_sensor_refactorizado(125.4, 0.0, 100.0))
+
     errores_entrenamiento = [0.45, -0.12, 0.89, -0.03, 0.22]
     print("El error más cercano a cero es:", buscar_error_minimo(errores_entrenamiento))
-    
+    print("El error más cercano a cero es:", buscar_error_minimo_refactorizado(errores_entrenamiento))
+
     ids_discord = [4521, 8892, 4521, 1022, 8892, 9931]
     print("Lista de IDs únicas filtradas:", depurar_usuarios_repetidos(ids_discord))
+    print("Lista de IDs únicas filtradas:", depurar_usuarios_repetidos_refactorizado(ids_discord))
