@@ -19,6 +19,7 @@ def verificar_fermat(a, b, c):
         else:
             print("No, esa combinación no funciona.")
 
+#se utilizó la función pow de la librería math para calcular las potencias de forma directa y se agregó el parámetro n para permitir verificar con diferentes exponentes mayores a 2
 def verificar_fermat_refactorizar(a, b, c, n):
     if n > 2:
         if math.pow(a, n) + math.pow(b, n) == math.pow(c, n):
@@ -42,6 +43,7 @@ def calcular_distancia(x1, y1, x2, y2):
     distancia = suma_cuadrados ** 0.5 
     return distancia
 
+#se utilizaron las funciones de la librería math para calcular la potencia y la raíz cuadrada de forma directa
 def calcular_distancia_refactorizada(x1, y1, x2, y2):
     return math.sqrt(math.pow(x2 - x1, 2) + math.pow(y2 - y1, 2))
 
@@ -66,6 +68,7 @@ def obtener_saludo_agente():
     elif opcion == 4:
         return "Hola humano, procesando tus peticiones."
 
+#los saludos se almacenaron en una lista y se selecciona uno al azar usando random.choice   
 def obtener_saludo_agente_refactorizado():
     saludos = [
         "Hola, soy el agente de IA. ¿En qué ayudo?",
@@ -95,6 +98,16 @@ def evaluar_error_sistema(valor_loss):
     else:
         return "Error: Valor negativo inválido"
 
+#se simplificó la estructura condicional uniendo las condiciones y eliminando anidaciones innecesarias 
+def evaluar_error_sistema_refactorizado(valor_loss):
+    if valor_loss < 0.0 or valor_loss > 1.0:
+        return "Error: Valor fuera de rango"
+    elif valor_loss < 0.4:
+        return "Estable"
+    elif valor_loss < 0.8:
+        return "Advertencia: Gradiente inestable"
+    else:
+        return "CRÍTICO: Abortar entrenamiento"
 
 # === PROGRAMA PRINCIPAL (Punto de entrada para probar) ===
 if __name__ == "__main__":
@@ -107,3 +120,4 @@ if __name__ == "__main__":
     print("Respuesta bot:", obtener_saludo_agente())
     print("Respuesta bot refactorizada:", obtener_saludo_agente_refactorizado())
     print("Estado del log:", evaluar_error_sistema(0.85))
+    print("Estado del log:", evaluar_error_sistema_refactorizado(0.85))
